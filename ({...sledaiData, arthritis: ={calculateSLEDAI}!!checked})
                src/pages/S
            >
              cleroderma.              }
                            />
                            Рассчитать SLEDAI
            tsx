@@ -1,0 +1,660 @@
+
+import { Layout<Label htmlFor="arthritis">Артр</Button>
+          </div>
+         } from "@/components/Layoutит</Label>
+                          </div></CardContent>
+      </Car
+                          <div className="flex items-";
+import { Calculcenter space-x-2">
+                            d>
+      
+      {atorLayout } from "@/components<Checkbox 
+                              id="mysledaiData.calculated && (
+        /calculators/Calculatorositis" 
+                              checked={sleLayout";
+import { ResultdaiData.myositis}
+                              Display } from "@/components<ResultDisplay
+          title="/calculators/ResultonCheckedChange={(checked) => SLEDAI"
+          scoreDisplay";
+import { useState
+                                setSledaiData({...sledai } from "react";={sledaiData.scoreData, myositis: !!checked})}
+          interpretation={getS
+import { Card, CardContent
+                              }
+                            />
+                LEDAIInterpretation()} } from "@/components/            <Label htmlFor="myositis">ui/card";
+import { InputМиозит</Label>
+                           } from "@/components/</div>
+                        
+          details="SLEDAI (ui/input";
+import { Label } fromSystemic Lup</div>
+                      </div>us Erythematosus Disease Activity Index "@/components/ui/label";
+import
+                      
+                      <div>
+                 { Button } from "@/components        <h3 className="font-medium) - индекс активности систем/ui/button";
+import { Sliderной красной волчан mb-3">Почечные проявления } from "@/components/ui/slider"; (4 балла каждое)</hки, учитывающий различ
+import { Select, SelectContent3>
+                        <div className="griные клинические и лабораторные, SelectItem, SelectTrigger, Selectd grid-cols-1 md:grid- проявления заболевания."cols-2 gap-3">
+                
+        />
+      )}
+              <div className="flex items-center spaceValue } from "@/components/ui/select</div>
+  );
+
+  ";
+import { Checkbox } from "@/components/ui/checkbox";-x-2">
+                            
+
+const Scleroderma = () =><Checkbox 
+                              id="urinaryCasts" 
+                              checked={sledaiconst BILAG {
+  // mRSS CalculatorData.urinaryCasts}
+                              Calculator = () => (
+  const [mrssData, setMonCheckedChange={(checked) => rssData] = useState({
+    face
+                                setSledaiData({...sledai
+    <div className="space-y-6">
+      <Car: 0,
+    chestData, urinaryCasts: !!checked>
+        <CardContent className: 0,
+    abd})
+                              }
+                            />domen: 0,
+    upper
+                            <Label htmlFor="urinaryC="pt-6">
+          <divasts">ЦилиндрArmsRight: 0, className="space-y-4урия</Label>
+                          </div
+    upperArmsLeft: 0,">
+            <p className="text-sm>
+                          <div className="flex items
+    foreArmsRight: -center space-x-2">
+                0,
+    foreArmsLeft:  text-muted-foreground mb            <Checkbox 
+                              id="0,
+    handsRight: 0hematuria" 
+                              checked={-4">
+              Вы,
+    handsLeft: 0,sledaiData.hematuria}
+                
+    fingersRight: 0берите градацию актив              onCheckedChange={(checked) => ,
+    fingersLeft: 0,ности заболевания для ка
+                                setSledaiData({...sle
+    thighsRight: 0,daiData, hematuria: !!checke
+    thighsLeft: 0,ждой системы органов:d})
+                              }
+                            />
+    legsRight: 0
+              <br />
+              
+                            <Label htmlFor="hematuria,
+    legsLeft: 0,">Гематурия</Label>A - Тяжелое
+    feetRight: 0,
+    feetLeft: 0,
+     поражение, B
+                          </div>
+                          <div className="flex items-center space-x-score: 0,
+    calculate - Умеренное поражение,2">
+                            <Checkbox  C - Легкое поражениеd: false
+  });
+
+  const calculate
+                              id="proteinuria" MRSS = () => {
+    
+                              checked={sledaiData.protein,
+              <br />
+              Duria}
+                              onCheckedChange={(const score = Object.values(mrss - Предыдущая активностьchecked) => 
+                                setSledaiData).reduce((sum, value) => {, E - Нет поData({...sledaiData, proteinuriaражения
+            </p>
+            
+      if (typeof value === 'number: !!checked})
+                              }
+            <div className="grid grid-cols-
+                            />
+                            <Label htmlFor1 md:grid-cols-2 ' && value >= 0 ="proteinuria">Протеинурgap-4">
+              <div&& value <= 3 ия</Label>
+                          </div>&& !isNaN className="space-y-2
+                          <div className="flex items-(value)) {
+        return sum + value">
+                <Label htmlFor="constitcenter space-x-2">
+                            ;
+      }
+      return sum;utionalGrade">Конститу<Checkbox 
+                              id="py
+    }, 0) -циональные симптомы</Labeluria" 
+                              checked={sledai mrssData.score ->
+                <select
+                  id="Data.pyuria}
+                              onChec (mrssData.calculatekedChange={(checked) => 
+                                constitutionalGrade"
+                  classNamed ? 1 : 0);="w-full p-2 border roundesetSledaiData({...sledaiData, pyuria: !!checked})
+                              
+    
+    setMrssData({}
+                            />d-md"
+                  value={bi ...mrssData, score, calculated: true
+                            <Label htmlFor="pyurialagData.constitutionalGrade}
+                  onChange={(e) });
+  };
+
+  const">Пиурия</Label>
+                          </div>
+                        </div => handleBilagChange('constitutionalGrade getMRSSInterpretation = ()>
+                      </div>
+                      ', e.target.value)}
+                > => {
+    const score = mrssData
+                      <div>
+                        
+                  <option value="A">A.score;
+    
+    if (score<h3 className="font-medium mb- - Тяжелое поражение === 0) {3">Проявления (</option>
+                  <option value="2 балла каждое)</h3
+      return { text: "НB">B - Умеренное по>
+                        <div className="grid griражение</option>
+                  <optionет кожных проявлений склd-cols-1 md:grid-cols value="C">C - Легкоееродермии", severity-2 gap-3">
+                          : "remission" as поражение</option>
+                  <div className="flex items-center space-<option value="D">D - Преды const };
+    } else if (score <=x-2">
+                            <Checkboxдущая активность</option>
+                 14) {
+      return 
+                              id="newRash"  <option value="E">E - { text: "Лег 
+                              checked={sledaiData. Нет поражения</option>
+                кое поражение кожnewRash}
+                              onChecke</select>
+              </div>
+              и", severity: "lowdChange={(checked) => 
+                                setS
+              <div className="space-y-" as const };
+    } else if (ledaiData({...sledaiData, new2">
+                <Label htmlFor="muscore <= 29) {
+      return {Rash: !!checked})
+                              cocutaneousGrade">К text: "Умеренное пораж}
+                            />
+                            <Labelожа и слизистыеение кожи", severity: "moderate" htmlFor="newRash">Новая сыпь</Label>
+                           as const };
+    } else {</Label>
+                <select
+                  id="mucocutaneousGrade"
+      return { text: "Тя</div>
+                          <div className="
+                  className="w-full p-желое поражение кожи",flex items-center space-x-2">2 border rounded-md"
+                   severity: "high" as const };
+                            <Checkbox 
+                              value={bilagData.mucocutane
+    }
+  };id="alopecia" 
+                              ousGrade}
+                  onChange={(e
+  
+  // Valentchecked={sledaiData.alopecia}) => handleBi
+                              onCheckedChange={(checked)lagChange('mucocutaneousGradeini Index Calculator
+  const [', e.target. => 
+                                setSledaiData({valentiniData, setValentiniData]value)}
+                >
+                  <option...sledaiData, alopecia:  = useState({
+    mrs value="A">A - Тяж!!checked})
+                              }
+                            елое поражение</option>
+                />
+                            <Label htmlFor="a  <option value="B">B -lopecia">Алопеция</LabelsDeltaMore: false,
+    sk Умеренное поражение</option>>
+                          </div>
+                          
+                  <option value="C">CeletalMuscleInvolvement: false,<div className="flex items-center space- - Легкое поражение</optionx-2">
+                            <Checkbox
+    digitalVascularInvolvement>
+                  <option value="D"> 
+                              id="mucosalU: false,
+    arthritisPresD - Предыдущая активность</option>
+                  <option value="ent: false,
+    dlcolcers" 
+                              checked={E">E - Нет пораженияsledaiData.mucosalUlcers}
+                              onCheckedChange={(</option>
+                </select>
+              checked) => 
+                                setSledai</div>
+              
+              <div classNameLessThan70:Data({...sledaiData, mucosal false,
+    heartInvolvement: false="space-y-2">
+                Ulcers: !!checked})<Label htmlFor="neuropsychiatricG
+                              }
+                            />
+                            ,
+    eslRaiseAbove20: false,rade">Нерв<Label htmlFor="mucosalUlная система</Label>
+                <select
+    hypocomplementemiacers">Язвы слизист
+                  id="neuropsychiatricGых оболочек</Label>
+                : false,
+    proteinuria: false,rade"
+                  className="w-full          </div>
+                          <div className
+    score: 0,
+    calculate p-2 border rounded-md"="flex items-center space-x-2d: false
+  });
+
+  const calculateVal
+                  value={bi">
+                            <Checkbox 
+                lagData.neuropsychiatricGradeentini = () => {
+    let              id="pleurisy" 
+                }
+                  onChange={(e) => handle score = 0;
+    
+    //              checked={sledaiData.pleurisyBilagChange('neuropsychiatric}
+                              onCheckedChange={(checke 1.5 pointsGrade', e.target.value)}d) => 
+                                setSledaiData
+                >
+                  <option value="A
+    if (valentiniData.mrssD({...sledaiData, pleurisy:">A - Тяжелое поeltaMore) score += 1.5 !!checked})
+                              }
+                ражение</option>
+                  <option;
+    
+    // 1.            />
+                            <Label htmlFor=" value="B">B - Умерен0 points
+    if (valentiniData.pleurisy">Пленое поражение</option>
+                  skeletalMuscleInvolvement)врит</Label>
+                          </div<option value="C">C - Лег score += 1.0;
+    if>
+                          <div className="flex itemsкое поражение</option>
+                 (valentiniData.digitalVascularIn-center space-x-2">
+                  <option value="D">D -            <Checkbox 
+                              id=" Предыдущая активность</option>pericarditis" 
+                              checke
+                  <option value="E">Evolvement) score += 1.0;
+    if (valentiniData.arthritisPresent) score += 1d={sledaiData.pericarditis} - Нет поражения</option>
+                              onCheckedChange={(checked)
+                </select>
+              </div>.0;
+    if (valentiniData. => 
+                                setSledaiData({
+              
+              <div className="space-dlcoLessThan70) score +=...sledaiData, pericarditis:y-2">
+                <Label htmlFor 1.0;
+    
+    //="musculoskele !!checked})
+                              }
+                 0.5 points
+    if (talGrade">            />
+                            <Label htmlFor="Костно-мышечvalentiniData.heartInvolvement) scorepericarditis">Перикардит += 0.5;
+    if (ная система</Label>
+                <select</Label>
+                          </div>valentiniData.eslRaiseAbove
+                  id="musculoskeletalG
+                          <div className="flex items-centerrade"
+                  className="w-full20) score += 0.5; space-x-2">
+                            
+    if (valentiniData.hypocom p-2 border rounded-md"<Checkbox 
+                              id="lowComp
+                  value={bilagData.musculplementemia) score += 0.5;lement" 
+                              checked={sledaioskeletalGrade}
+                  onChange
+    
+    // 0.Data.lowComplement}
+                              on={(e) => handleBilagChange('5 points
+    if (valentiniDataCheckedChange={(checked) => 
+                musculoskeletalGrade', e..proteinuria) score += 0.                setSledaiData({...sledaiData5;
+    
+    setValentinitarget.value)}
+                >
+                  , lowComplement: !!checked})<option value="A">A - ТData({ ...valentiniData, score, calculate
+                              }
+                            />
+                            яжелое поражение</option>d: true });
+  };
+
+  const get<Label htmlFor="lowComplement">
+                  <option value="B">BValentiniInterpretation = () => - Умеренное поражение {
+    const score = valentiniData.Снижение комплемента</Label>score;
+    
+    if (score >=</option>
+                  <option value="C
+                          </div>
+                          <div">C - Легкое поражение 3.0) {
+      return</option>
+                  <option value=" { text: "Высокая className="flex items-center space-x-2">
+                            <Checkbox D">D - Предыдущая
+                              id="increasedDNABinding активность склеродермии", активность</option>
+                  <option" 
+                              checked={sledaiData severity: "high" as const };
+     value="E">E - Нет по.increasedDNABinding}
+                } else if (score >= 1ражения</option>
+                </select>              onCheckedChange={(checked) => .5) {
+      return { text:
+              </div>
+              
+              
+                                setSledaiData({...sle "Умеренная активность скле<div className="space-y-2">daiData, increasedDNABinding:родермии", severity: "moderate" as
+                <Label htmlFor="car !!checked})
+                              }
+                 const };
+    } else if            />
+                            <Label htmlFor=" (score > 0) {diorespGrade">СердincreasedDNABinding">Повыш
+      return { text: "Низкаяечно-легочная система</Labelение анти-ДН>
+                <select активность склеродермии", severity:
+                  id="К антител</Label>
+                           "low" as const };
+    } elsecardiorespGrade"
+                  className</div>
+                        </div>
+                 {
+      return { text: "Н="w-full p-2 border rounde      </div>
+                      
+                      ет активности заболевания", severityd-md"
+                  value={bilag<div>
+                        <h3 : "remission" as const };
+    className="font-medium mb-3">Data.cardiorespGrade}
+                }
+  };
+
+  const  onChange={(e) => handleBilagПроявления (1 балл каждChange('cardiorespGrade', e.ое)</h3>
+                        <divtarget.value)} MRSSCalculator = () => ( className="grid grid-cols-1 m
+                >
+                  <option value="Ad:grid-cols-2 gap-3">A - Тяжелое по
+    <div className="space-y-6">">
+                          <div className="flex itemsражение</option>
+                  <option
+      <Card>
+        <Car value="B">B-center space-x-2">
+                 - Умеренное поражение            <Checkbox 
+                              id="dContent className="pt-6">
+          <div</option>
+                  <option value="Cfever" 
+                              checked={sledai">C - Легкое поражение className="space-y-4">
+            <pData.fever}
+                              onChecke</option>
+                dChange={(checked) => 
+                                setS  <option value="D">D - className="text-sm text-mledaiData({...sledaiData, fever Предыдущая активность</option>uted-foreground mb-4: !!checked})
+                              }
+                  <option value="E">E
+                            />
+                            <Label htmlFor - Нет поражения</option>">
+              Оцените тол
+                </select>щину кожи в ка="fever">Лихорадка
+              </div>
+              
+              </Label>
+                          </div>
+                <div className="space-y-2">ждой из 17 ан          <div className="flex items-center space
+                <Label htmlFor="ga-x-2">
+                            атомических областей по шкале от strointestinalG<Checkbox 
+                              id="thrombocrade">ЖКТ0 до 3:</Label>
+                ytopenia" 
+                              checked={<select
+                  sledaiData.thrombocytopeniaid="gastroint
+              <br />0 -estinalGrade"
+                  className="}
+                              onCheckedChange={(checke нормальная кожаw-full p-2 border rounded-d) => 
+                                setSledaiData, 1 - легкое утmd"
+                  ({...sledaiData, thrombocytvalue={bilagData.gastrointestолщение, 2 - умеopenia: !!checked})
+                              ренное утолщение, 3 inalGrade}
+                  onChange={(e) => handleBi}
+                            />
+                            <LabellagChange('gastr- тяжелое утолщение
+             htmlFor="thrombocytopenia">ointestinalGrade', e.target.</p>
+            
+            <div classNameТромбоцитопенияvalue)}
+                >
+                  <option="grid grid-cols-1 md: value="A">A</Label>
+                          </div>
+                grid-cols-2 gap-4"> - Тяжелое поражение          <div className="flex items-center space</option>
+                
+              <div className="space-x-2">
+                              <option value="B">B --y-2">
+                <Label<Checkbox 
+                              id="leukop htmlFor="face">Лицо Умеренное поражение</option>enia" 
+                              checked={sledai
+                  <option value="C">C - Легкое поражение</option</Label>
+                <Select 
+                  value>
+                  <option value="D">Data.leukopenia}
+                              ={mrssData.face.onCheckedChange={(checked) => 
+                                setSledaiData({...sledaiD - Предыдущая активностьtoString()} 
+                  onValueChangeData, leukopenia: !!checke</option>
+                  <option value="={(value) => setMrssData({d})
+                              }
+                            />E">E - Нет поражения...mrssData, face: parseInt(value
+                            <Label htmlFor="leukop</option>
+                </select>
+              enia">Лейкопения</Label</div>
+              
+              <div className)})}
+                >
+                  <SelectT>
+                          </div>
+                        ="space-y-2">
+                rigger>
+                    <SelectValue placeholder</div>
+                      </div><Label htmlFor="ophthalmicGrade="Выберите значение"
+                      
+                      <Button">Глаза</Label>
+                 />
+                  </SelectTrigger><select
+                  id="ophthalm
+                  <SelectContent>
+                     onClick={calculateSLEDAIicGrade"
+                  className="w<SelectItem value="0">0 --full p-2 border rounded-m} className="mt-2">Рассчитать Нормальная кожа</SelectItemd"
+                  value={bilagData. SLEDAI</Button>
+                    >
+                    <SelectItem value="1ophthalmicGrade}
+                  </div>
+                  </CardContent>">1 - Легкое утолonChange={(e) => handleBilagChangeщение</SelectItem>
+                    
+                </Card>
+                
+                {('ophthalmicGrade', e.<SelectItem value="2">2 -sledaiData.calculated && (
+                  target.value)}
+                >
+                   Умеренное утолщение</Select<option value="A">A - Т<ResultDisplay
+                    title="Item>
+                    <SelectItem value="яжелое поражение</option>SLEDAI"
+                    score3">3 - Тяжел
+                  <option value="B">B={sledaiData.score}
+                    ое утолщение</SelectItem> - Умеренное поражениеinterpretation={getSLEDAIInt
+                  </SelectContent>
+                </Select</option>
+                  <option value="C>
+              </div>
+              erpretation()}
+                    details">C - Легкое поражение
+              <div className="space-y-2</option>
+                  <option value="="SLEDAI (Systemic Lup">
+                <Label htmlFor="chest">D">D - Предыдущаяus Erythematosus Disease Activity IndexГрудная клетка</Label> активность</option>
+                  <option) оценивает активность системной
+                <Select 
+                  value={mrssData.chest.toString()}  красной волчанки на основе кл value="E">E - Нет поражения</option>
+                </select>
+                  onValueChange={(value) =>инических и лабораторных
+              </div>
+              
+               setMrssData({...mrssData<div className="space-y-2"> проявлений."
+                  />, chest: parseInt(value)})}
+                
+                <Label htmlFor="ren
+                )}
+              </div>
+            ),>
+                  <SelectTrigger>alGrade">Почки</Label>
+          },
+          {
+            id:
+                    <SelectValue placeholder="Вы
+                <select
+                  id="ren "bilag",
+            name: "берите значение" />
+                  alGrade"
+                  className="w</SelectTrigger>
+                  <Select-full p-2 border rounded-mContent>
+                    <SelectItem value="d"
+                  value={bilagData.BILAG",
+            content: (
+              0">0 - Нормальная<div>
+                <Card>
+                  <CardContent className="pt-6">renalGrade}
+                  onChange={(
+                    <div className="grid gap- кожа</SelectItem>
+                    e) => handleBilagChange('ren4">
+                      <palGrade', e className="text-sm text-m<SelectItem value="1">1 -.target.value)}
+                >
+                 Легкое утолщение</Select  <option value="A">A -Item>
+                    <SelectItem value="uted-foreground mb-2"> Тяжелое поражение</option2">2 - Умеренное>
+                  <option value="B"> утолщение</SelectItem>
+                
+                        Для каждой системB - Умеренное поражение    <SelectItem value="3">3 ы органов выберите со</option>
+                  <option value="- Тяжелое утолщответствующую категорию активC">C - Легкое поражение</SelectItem>
+                  </Selectности:
+                        <br />Aение</option>
+                  <option valueContent>
+                </Select>
+               - тяжелая актив</div>
+              
+              <div className="="D">D - Предыдущspace-y-2">
+                <Labelая активность</option>
+                  ность, B - умеренная активность, C<option value="E"> htmlFor="abdomen">Живот - легкая активность,E - Нет поражения</option</Label>
+                <Select 
+                  >
+                </select>
+              </div
+                        <br />D - ранvalue={mrssData.abdomen.toString>
+              
+              <div className="spaceее была активность, сейчас нет()} 
+                  onValueChange={(-y-2">
+                <Label htmlvalue) => setMrssData({..., E - никогда не было активностиmrssData, abdomen: parseInt(valueFor="hematologicalGrade">К
+                      </p>
+                      роветворная система</Label>
+                )})}
+                >
+                  <Select
+                      <div className="grid grid-cols<select
+                  id="hematologTrigger>
+                    <SelectValue-1 md:grid-cols-2icalGrade"
+                  className="w placeholder="Выберите значение" /> gap-4">
+                        -full p-2 border rounded-m
+                  </SelectTrigger><div className="space-y-2d"
+                  value={bilagData.
+                  <SelectContent>
+                    ">
+                          <Label<SelectItem value="0">0 -hematologicalGrade}
+                   htmlFor="constitutional">КонституциonChange={(e) => handleBilagChange Нормальная кожа</SelectItemональные проявления</Label>
+                ('hematologicalGrade', e.>
+                    <SelectItem value="1target.value)}          <Select
+                            value">1 - Легкое утол
+                >
+                  <option value="A={bilagData.constitutional}
+                            щение</SelectItem>
+                    ">A - Тяжелое по<SelectItem value="2">2 -onValueChange={(value) =>ражение</option>
+                  <option Умеренное утолщение</Select setBilagData({... value="B">B - УмеренItem>
+                    <SelectItem value="bilagData, constitutional: value})}ное поражение</option>
+                  3">3 - Тяжел
+                          >
+                            <option value="C">C - Легое утолщение</SelectItem>кое поражение</option>
+                <SelectTrigger id="constitutional">
+                
+                  </SelectContent>
+                </Select  <option value="D">D -              <SelectValue placeholder="Выберите>
+              </div>
+              
+               Предыдущая активность</option>
+                  <option value="E">E{/* Верхние конеч активность" />
+                            </SelectTrig - Нет поражения</option>ности */}
+              <div className="spaceger>
+                            <SelectContent>
+                </select>
+              </div>-y-2">
+                <Label html
+                              <SelectItem value="A">A
+            </div>
+            For="upperArmsRight">Пл - Тяжелая
+            <Button 
+              className="wечи правые</Label> активность</SelectItem>
+                              -full mt-4" 
+              onClick
+                <Select 
+                  value={<SelectItem value="B">B - Ум={calculateBILAG}
+            mrssData.upperArmsRight.toStringеренная активность</SelectItem>>
+              Рассчитать()} 
+                  onValueChange={(
+                              <SelectItem value="C">C BILAG
+            </Button>
+          value) => setMrssData({... - Легкая активность</SelectItem</div>
+        </CardContent>
+      mrssData, upperArmsRight: parseInt>
+                              <SelectItem value="D</Card>
+      
+      {bilag(value)})}
+                >
+                  ">D - Ранее активData.calculated && (
+        <ResultDisplay<SelectTrigger>
+                    но, сейчас нет</Select
+          title="BILAG"
+          <SelectValue placeholder="Выберите значениеscore={bilagData.score}
+          " />
+                  </SelectTriggerItem>
+                              <SelectItem value="interpretation={getBILAGInterpret>
+                  <SelectContent>
+                E">E - Никогда не было активно</SelectItem>
+                                <SelectItem value="0">0 </SelectContent>
+                          </Select>ation()}
+          details="BILAG (- Нормальная кожа
+                        </div>
+                        
+                British Isles Lupus Assessment Group) - индекс активности систем</SelectItem>
+                    <SelectItem value        <div className="space-y-2ной красной волчанки, о="1">1 - Легкое">
+                          <Label htmlFor="muценивающий активность заболевания утолщение</SelectItem>
+                cocutaneous">Кожно    <SelectItem value="2">2  по системам органов."-слизистые проявления</Label- Умеренное утолщение
+        />
+      )}
+    </div>>
+                          <Select
+                            value
+  );
+
+  </SelectItem>
+                    <SelectItem={bilagData.mucocutaneous} value="3">3 - Тяreturn (
+    <Layout
+                            onValueChange={(value) =>желое утолщение</SelectItem>
+      <CalculatorLayout setBilagData({...bilagData,>
+                  </SelectContent>
+                
+        title="Системная красная вол mucocutaneous: value})}
+                </Select>
+              </div>
+              чанка"
+        description="          >
+                            <SelectTrigger
+              <div className="space-y-Калькуляторы для о id="mucocutaneous">
+                              2">
+                <Label htmlFor="upperценки активности системной красной волч<SelectValue placeholder="Выберите активанки по индексам SLEDAIArmsLeft">Плечи левые и BILAG"</Label>
+                <Select 
+                  value={mrssData.upperArmsность" />
+                            </SelectTrig
+        calculators={[
+          ger>
+                            <SelectContent>
+                              <SelectItem value="A">ALeft.toString()} 
+                  on - Тяжелая активностьValueChange={(value) => setMrss</SelectItem>
+                              <SelectItem value{ id: "sledai", name:Data({...mrssData, upperArms="B">B - УмереннаяLeft: parseInt(value)})}
+                > активность</SelectItem>
+                               "SLEDAI", content
+                  <SelectTrigger>: <SLEDAI<SelectItem value="C">C - ЛегCalculator /> },
+          { id: "
+                    <SelectValue placeholder="Выберкая активность</SelectItem>
+                bilag", name: "BILAG",ите значение" />
+                  </Select              <SelectItem value="D">D - content: <BILAGCalculatorTrigger>
+                  <SelectContent Ранее активно, сейч /> }
+        ]}
+      />>
+                    <SelectItem value="0
+    </Layout>
+  );
+};">0 - Нормальная кожа</SelectItem>
+                    
+
+export default Lupus;
+ас нет</SelectItem>
+                              <SelectItem value="1">1 -<SelectItem value="E">E - Никогда не было активно</SelectItem>
+                            </SelectContent>
+                 Легкое утолщение</SelectItem
