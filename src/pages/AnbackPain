@@ -1,0 +1,320 @@
+1. БоkylosingSpondylitis.tsx">ль в спине</Label>
+                <div className="pt-2">
+                  
+import { Layout } from "@/components/Layout";<Slider
+                    value={[as
+import { CalculatorLayout } fromdasData.backPain]}
+                     "@/components/calculators/Calculatormin={0}
+                    max={10Layout";
+import { Result}
+                    step={0.1}Display } from "@/components/calcul
+                    onValueChange={(value) =>ators/ResultDisplay";
+import { useState setAsdasData({...asdasData, } from "react";
+import { Card, backPain: value[0]})} CardContent } from "@/components/
+                  />
+                  <div className="ui/card";
+import { Inputflex justify-between mt-1">
+                    <span className="text-xs text- } from "@/components/muted-foreground">Нетui/input";
+import { Label } from</span>
+                    <span className="text "@/components/ui/label";
+import { Button } from "@/components-sm font-medium">{asdasData/ui/button";
+import { Slider.backPain.toFixed(1) } from "@/components}</span>
+                    <span className="/ui/slider";text-xs text-muted-foregroun
+
+const AnkylosingSpondylitis = () => {
+  //d">Очень сильная</span>
+                  </div>
+                </div BASDAI Calculator
+  const [ba>
+              </div>
+              
+              sdaiData, set<div className="space-y-2">BasdaiData] = useState({
+    fatigue: 0
+                <Label htmlFor="patientG,
+    backPain: 0lobal">2. Общая оцен,
+    peripheralPка активности заболевания пациентain: 0,
+    enthesitом</Label>
+                <div className="isScore: 0,pt-2">
+                  <Slider
+                    value={[asdasData.
+    morningStiffnessIntensity: 0patientGlobal]}
+                    min,
+    morning={0}
+                    max={10}StiffnessDuration: 0
+                    step={0.1},
+    score: 0,
+    calculated: false
+                    onValueChange={(value) => set
+  });
+
+  constAsdasData({...asdasData, pat calculateBASDAI = () =>ientGlobal: value[0]})} {
+    const {
+                  />
+                  <div className
+      fatigue,
+      backPain="flex justify-between mt-1">,
+      peripheralPain,
+      enthesitisScore
+                    <span className="text-xs text,
+      morningStiffnessInt-muted-foreground">Неensity,
+      активно</span>
+                morningStiffnessDuration
+    }    <span className="text-sm font- = basdaiData;
+    
+    const score = (
+      fatigue + 
+      backPmedium">{asdasData.patientGlobal.toFixed(1)}</spanain + 
+      peripheralPain +>
+                    <span className="text- 
+      enthesxs text-muted-foreground">itisScore + Очень активно</span>
+                  
+      morningStiffnessIntensity + 
+      </div>
+                </div>
+              morningStiffnes</div>
+              
+              <div classNamesDuration
+    ) / 6;="space-y-2">
+                
+    
+    setBasdaiData({<Label htmlFor="peripheralPain">3 ...basdaiData, score, calculated: true });
+  };. Боль в периферических суставах
+
+  const getBASDAIInterpretation = () =></Label>
+                <div className="pt {
+    const score-2">
+                  <Slider = basdaiData.score;
+    
+                    value={[asdasData.peripherif (score < 4) {
+      returnalPain]}
+                    min={0}
+                    max={10}
+                 { text: "Низк    step={0.1}
+                    ая активность заболевания", severityonValueChange={(value) => setAsdas: "low" as const };
+    }Data({...asdasData, peripheralP else {
+      return { textain: value[0]})}
+                  : "Высокая активность забол/>
+                  <div className="flex justifyевания", severity: "high" as const-between mt-1">
+                    <span className="text-xs text-mute };
+    }
+  };
+
+  // ASDAS Calculator
+  d-foreground">Нет</span>const [asdasData, setAsdasData
+                    <span className="text-sm font-medium">{asdasData.peripher] = useState({
+    backPain: 0,
+    patalPain.toFixed(1)}ientGlobal: 0,</span>
+                    <span className="text
+    peripheralPain: -xs text-muted-foreground">0,
+    morningStiffnesОчень сильная</span>sDuration: 0,
+    cr
+                  </div>
+                </div>p: 0,
+              </div>
+              
+               // in mg/L
+    <div className="space-y-2">
+                <Label htmlFor="morningStiffuseEsr: false,
+    ness">4. Продолжительность утesr: 0, // in mm/hренней скованности</Label>
+                
+    score: 0,
+    calculate<div className="pt-2">
+                d: false
+  });
+
+  const calculateA  <Slider
+                    value={[SDAS = () =>asdasData.morningStiffness]}
+                    min={0}
+                    max={10}
+                    step={0 {
+    const {
+      backPain,
+      patientGlobal,
+      peripheralPain,
+      morningStiffnessDuration.1}
+                    onValueChange={(,
+      crp,
+      useEvalue) => setAsdasData({...assr,
+      esr
+    } =dasData, morningStiffness: value asdasData;
+    
+    let[0]})}
+                  />
+                 score;
+    
+    if  <div className="flex justify-between mt (!useEsr) {-1">
+                    <span className="
+      // ASDAS-CRPtext-xs text-muted-foregroun formula
+      score = d">0 часов</span>
+                    <span className="text-sm font-0.121 * backPain + medium">{asdasData.morningSt
+              0.110 * patientGiffness.toFixed(1)}</spanlobal + 
+              0.073 >
+                    <span className="text-* peripheralPain + 
+              0xs text-muted-foreground">2.058 * morningStiffnessDuration + 
+              0.579 * Math.log+ часа</span>
+                  (crp + </div>
+                </div>
+              </div>
+              
+              <div className="1);
+    }space-y-2">
+                <Label else {
+      // ASDAS->5. ВыберESR formula
+      score = 0.ите маркер воспаления:113 * backPain</Label>
+                <RadioGroup
+                   + 
+              0.293 * Math.sqrtvalue={asdasData.marker}
+                  (esr) + onValueChange={(value) => setAsdasData
+              0.086 * peripher({...asdasData, marker: value}alPain + 
+              0.069 * morningSt)}
+                  className="flexiffnessDuration + 
+              0. flex-col space-y-1079 * patientGlobal;"
+                >
+                  <div
+    }
+    
+    setAsdas className="flex items-center space-x-Data({ ...asdasData, score, calculate2">
+                    d: true });
+  <RadioGroupItem value="crp"};
+
+  const getASDASInterpret id="crp" />ation = () => {
+    const score = asdasData.score
+                    <Label htmlFor="crp;
+    if (">СРБ</Label>
+                score < 1.3) {
+      return { text:  </div>
+                  <div className "Неактивное="flex items-center space-x-2 заболевание",">
+                    <RadioGroupItem value=" severity: "remission" as const };esr" id="esr" />
+    } else if (score < 2
+                    <Label htmlFor="esr">.1) {
+      return { text:СОЭ "Низкая активность заболевания", severity: "</Label>
+                  </div>
+                low" as const };
+    } else if (score < 3</RadioGroup>
+              </div>
+              .5) {
+      return { text:
+              {asdasData.marker "Высокая активность заболевания", severity === "crp" ? (
+                <div: "moderate" as const };
+    } className="space-y-2">
+                 else {
+      return { text: "  <Label htmlFor="crpОчень высокая">СРБ (м активность заболевания", severity: "high" as const };г/л)</Label>
+                  
+    }
+  };
+
+  const B<Input
+                    id="crp"ASDAICalculator = () => (
+                    type="number"
+                    min
+    <div className="space-y-6">
+      <Card>
+        <Car="0"
+                    step="0.1"dContent className="pt-6">
+          
+                    value={asdasData.cr<div className="space-y-4">p === 0 ? ""
+            <p className="text-sm : asdasData.crp}
+                 text-muted-fore    onChange={(e) => setAsdasData({...asdasData, crp: parseground mb-4">
+              ОFloat(e.target.value) || 0})}
+                    цените каждый симplaceholder="Введите значптом по шкале отение СРБ" 0 до 10, где 0 - отсут
+                  />
+                </divствие симптома, 10 ->
+              ) : (
+                <div максимальная выраженность. className="space-y-2">
+                
+            </p>  <Label htmlFor="esr">С
+            
+            <div className="spaceОЭ (мм/час-y-6">
+              <div)</Label>
+                  <Input
+                 className="space-y-2">
+                <Label html    id="esr"
+                    typeFor="fatigue">="number"
+                    min="0"1. Как бы вы о
+                    step="1ценили уровень общ"
+                    value={asdasData.ей слабости/esr === 0 ? "" : asутомляемостиdasData.esr}
+                    onChange за последнюю неделю?</Label={(e) => setAsdasData({...>
+                <divasdasData, esr: parseInt className="pt-2">
+                  <Slider(e.target.value)
+                    id="fatigue"
+                     || 0})}
+                    placeholder="Введите значение СОЭvalue={[basdaiData.fatigue]}
+                "
+                  />
+                </div>    min={0}
+                    max={10}
+                    step={
+              )}
+            </div>
+            
+            <Button 
+              className="w0.1}
+                    on-full mt-6" 
+              onClick={calculateASDAS}
+              ValueChange={(value) => setBasdaidisabled={(asdasData.markerData({...basdaiData, fatigue: value === "crp" && asdasData.[0]})}
+                  />
+                crp === 0) || (asdasData.marker === "esr" && as  <div className="flex justify-between mt-1dasData.esr === 0)}
+            >
+              Рассчитать text-xs text-muted- ASDAS
+            </Button>foreground">
+                
+          </div>
+        </CardContent>
+      </Card>
+      
+      {    <span>0 asdasData.calculated && (
+        (Нет)</span>
+                    <span>{basdaiData.<ResultDisplay
+          title={fatigue.toFixed(1)}</span`ASDAS->
+                    ${asdasData.marker.<span>10 (Очень сильная)toUpperCase()}`}
+          score={</span>
+                  asdasData.score}
+          interpretation={</div>
+                </div>
+              </div>
+              getASDASInterpretation()}
+              <div className="space-y-2">
+                <Label htmlFor="back
+          details={`ASDASPain">2. Как бы в (Ankylosing Spondylы оценили интitis Disease Activity Score) - коменсивность бобинированный индекс активности анкилозирующли в шее, спине или тазобедренныхего спондилита, уч суставах за последнюю неделитывающий как субъективные симю?</Label>птомы, так и ма
+                <div className="pt-2">
+                  ркеры воспаления (<Slider
+                    id="backPain"${asdasData.marker.toUpperCase()
+                    value={[basdaiData.backPain]}}).`}
+        />
+      )}
+                    min={0}
+                    
+    </div>
+  );
+
+  returnmax={10}
+                    step={0 (
+    <Layout>
+      .1}
+                    onValueChange={(<CalculatorLayout
+        title="value) => setBasdaiData({...basdaiData,Болезнь Бех backPain: value[0]})}терева (Ан
+                  />
+                  <div className="flex justify-between mtкилозирующий спондилит-1 text-xs text-muted-foreground">)"
+        description="Кальку
+                    <span>0 (Нляторы для оценки активности болет)</span>
+                    <span>{езни Бехтерева поbasdaiData.backPain.to индексам BASDAI и ASDFixed(1)}</span>
+                    <span>10 (Очень сAS"
+        calculators={[ильная)</span>
+                  </div>
+                </div>
+              </div>
+              
+              
+          { id: "basdai", name<div className="space: "BASDAI", content-y-2">
+                <Label htmlFor="peripheralPain">3.: <BASDAICalculator Как бы вы оценили интен /> },
+          { id: "asсивность боли/das", name: "ASDAS", content: <ASDASCalculator /> }отека в суставах (исключая шею, спину и таз
+        ]}
+      />
+    </Layout>
+  );
+};
+
+export default AnkylosingSpondylitis;
+обедренные суставы)?</Label>
+                <div className="pt-2">
+                
