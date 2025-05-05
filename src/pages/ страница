@@ -1,0 +1,360 @@
+
+import { Layout } from "@ страница со списком всех калькуля/components/Layout";
+import { торов и отдельные страницCalculatorLayout } from "@/componentsы для каждого ревматологического за/calculators/Calculatorболевания с соответствующими калькуляторами.Layout";
+import { ResultDisplay } from "@/components/calculators/ResultDisplay";
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
+
+const RheumatoidArthritis = () => {
+  // DAS28 Calculator
+  const [das28Data, setDas28Data] = useState({
+    tenderJoints: 0,
+    swollenJoints: 0,
+    esr: 0,
+    patientGlobal: 0,
+    score: 0,
+    calculated: false
+  });
+
+  const calculateDAS28 = () => {
+    const { tenderJoints, swollenJoints, esr, patientGlobal } = das28Data;
+    const score = 0.56 * Math.sqrt(tenderJoints) + 0.28 * Math.sqrt(swollenJoints) + 0.70 * Math.log(esr) + 0.014 * patientGlobal;
+    setDas28Data({ ...das28Data, score, calculated: true });
+  };
+
+  const getDAS28Interpretation = () => {
+    const score = das28Data.score;
+    if (score < 2.6) {
+      return { text: "Ремиссия заболевания", severity: "remission" };
+    } else if (score < 3.2) {
+      return { text: "Низкая активность заболевания", severity: "low" };
+    } else if (score < 5.1) {
+      return { text: "Умеренная активность заболевания", severity: "moderate" };
+    } else {
+      return { text: "Высокая активность заболевания", severity: "high" };
+    }
+  };
+
+  // SDAI Calculator
+  const [sdaiData, setSdaiData] = useState({
+    tenderJoints: 0,
+    swollenJoints: 0,
+    patientGlobal: 0,
+    physicianGlobal: 0,
+    crp: 0,
+    score: 0,
+    calculated: false
+  });
+
+  const calculateSDAI = () => {
+    const { tenderJoints, swollenJoints, patientGlobal, physicianGlobal, crp } = sdaiData;
+    const score = tenderJoints + swollenJoints + patientGlobal + physicianGlobal + crp;
+    setSdaiData({ ...sdaiData, score, calculated: true });
+  };
+
+  const getSDAIInterpretation = () => {
+    const score = sdaiData.score;
+    if (score <= 3.3) {
+      return { text: "Ремиссия заболевания", severity: "remission" };
+    } else if (score <= 11) {
+      return { text: "Низкая активность заболевания", severity: "low" };
+    } else if (score <= 26) {
+      return { text: "Умеренная активность заболевания", severity: "moderate" };
+    } else {
+      return { text: "Высокая активность заболевания", severity: "high" };
+    }
+  };
+
+  // CDAI Calculator
+  const [cdaiData, setCdaiData] = useState({
+    tenderJoints: 0,
+    swollenJoints: 0,
+    patientGlobal: 0,
+    physicianGlobal: 0,
+    score: 0,
+    calculated: false
+  });
+
+  const calculateCDAI = () => {
+    const { tenderJoints, swollenJoints, patientGlobal, physicianGlobal } = cdaiData;
+    const score = tenderJoints + swollenJoints + patientGlobal + physicianGlobal;
+    setCdaiData({ ...cdaiData, score, calculated: true });
+  };
+
+  const getCDAIInterpretation = () => {
+    const score = cdaiData.score;
+    if (score <= 2.8) {
+      return { text: "Ремиссия заболевания", severity: "remission" };
+    } else if (score <= 10) {
+      return { text: "Низкая активность заболевания", severity: "low" };
+    } else if (score <= 22) {
+      return { text: "Умеренная активность заболевания", severity: "moderate" };
+    } else {
+      return { text: "Высокая активность заболевания", severity: "high" };
+    }
+  };
+
+  const DAS28Calculator = () => (
+    <div className="space-y-6">
+      <Card>
+        <CardContent className="pt-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="tenderJoints">Число болезненных суставов (0-28)</Label>
+              <Input
+                id="tenderJoints"
+                type="number"
+                value={das28Data.tenderJoints}
+                onChange={(e) => setDas28Data({...das28Data, tenderJoints: parseInt(e.target.value) || 0})}
+                min="0"
+                max="28"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="swollenJoints">Число припухших суставов (0-28)</Label>
+              <Input
+                id="swollenJoints"
+                type="number"
+                value={das28Data.swollenJoints}
+                onChange={(e) => setDas28Data({...das28Data, swollenJoints: parseInt(e.target.value) || 0})}
+                min="0"
+                max="28"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="esr">СОЭ (мм/ч)</Label>
+              <Input
+                id="esr"
+                type="number"
+                value={das28Data.esr}
+                onChange={(e) => setDas28Data({...das28Data, esr: parseInt(e.target.value) || 0})}
+                min="1"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="patientGlobal">Общая оценка пациентом (0-100)</Label>
+              <div className="pt-6">
+                <Slider
+                  value={[das28Data.patientGlobal]}
+                  min={0}
+                  max={100}
+                  step={1}
+                  onValueChange={(value) => setDas28Data({...das28Data, patientGlobal: value[0]})}
+                />
+              </div>
+              <p className="text-sm text-center mt-2">{das28Data.patientGlobal}</p>
+            </div>
+          </div>
+          
+          <Button 
+            className="w-full mt-6" 
+            onClick={calculateDAS28}
+            disabled={das28Data.esr === 0}
+          >
+            Рассчитать DAS28-СОЭ
+          </Button>
+        </CardContent>
+      </Card>
+      
+      {das28Data.calculated && (
+        <ResultDisplay
+          title="DAS28-СОЭ"
+          score={das28Data.score}
+          interpretation={getDAS28Interpretation()}
+          details="DAS28 (Disease Activity Score) - индекс активности ревматоидного артрита, учитывающий 28 суставов, СОЭ и общую оценку состояния здоровья пациентом."
+        />
+      )}
+    </div>
+  );
+
+  const SDAICalculator = () => (
+    <div className="space-y-6">
+      <Card>
+        <CardContent className="pt-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="sdai-tenderJoints">Число болезненных суставов (0-28)</Label>
+              <Input
+                id="sdai-tenderJoints"
+                type="number"
+                value={sdaiData.tenderJoints}
+                onChange={(e) => setSdaiData({...sdaiData, tenderJoints: parseInt(e.target.value) || 0})}
+                min="0"
+                max="28"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="sdai-swollenJoints">Число припухших суставов (0-28)</Label>
+              <Input
+                id="sdai-swollenJoints"
+                type="number"
+                value={sdaiData.swollenJoints}
+                onChange={(e) => setSdaiData({...sdaiData, swollenJoints: parseInt(e.target.value) || 0})}
+                min="0"
+                max="28"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="sdai-patientGlobal">Общая оценка пациентом (0-10)</Label>
+              <div className="pt-6">
+                <Slider
+                  value={[sdaiData.patientGlobal]}
+                  min={0}
+                  max={10}
+                  step={0.1}
+                  onValueChange={(value) => setSdaiData({...sdaiData, patientGlobal: value[0]})}
+                />
+              </div>
+              <p className="text-sm text-center mt-2">{sdaiData.patientGlobal.toFixed(1)}</p>
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="sdai-physicianGlobal">Общая оценка врачом (0-10)</Label>
+              <div className="pt-6">
+                <Slider
+                  value={[sdaiData.physicianGlobal]}
+                  min={0}
+                  max={10}
+                  step={0.1}
+                  onValueChange={(value) => setSdaiData({...sdaiData, physicianGlobal: value[0]})}
+                />
+              </div>
+              <p className="text-sm text-center mt-2">{sdaiData.physicianGlobal.toFixed(1)}</p>
+            </div>
+            
+            <div className="space-y-2 sm:col-span-2">
+              <Label htmlFor="sdai-crp">СРБ (мг/дл)</Label>
+              <Input
+                id="sdai-crp"
+                type="number"
+                value={sdaiData.crp}
+                onChange={(e) => setSdaiData({...sdaiData, crp: parseFloat(e.target.value) || 0})}
+                min="0"
+                step="0.1"
+              />
+            </div>
+          </div>
+          
+          <Button 
+            className="w-full mt-6" 
+            onClick={calculateSDAI}
+          >
+            Рассчитать SDAI
+          </Button>
+        </CardContent>
+      </Card>
+      
+      {sdaiData.calculated && (
+        <ResultDisplay
+          title="SDAI"
+          score={sdaiData.score}
+          interpretation={getSDAIInterpretation()}
+          details="SDAI (Simplified Disease Activity Index) - упрощенный индекс активности ревматоидного артрита, учитывающий число болезненных и припухших суставов, общую оценку пациентом и врачом, а также уровень СРБ."
+        />
+      )}
+    </div>
+  );
+
+  const CDAICalculator = () => (
+    <div className="space-y-6">
+      <Card>
+        <CardContent className="pt-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="space-y-2">
+              <Label htmlFor="cdai-tenderJoints">Число болезненных суставов (0-28)</Label>
+              <Input
+                id="cdai-tenderJoints"
+                type="number"
+                value={cdaiData.tenderJoints}
+                onChange={(e) => setCdaiData({...cdaiData, tenderJoints: parseInt(e.target.value) || 0})}
+                min="0"
+                max="28"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="cdai-swollenJoints">Число припухших суставов (0-28)</Label>
+              <Input
+                id="cdai-swollenJoints"
+                type="number"
+                value={cdaiData.swollenJoints}
+                onChange={(e) => setCdaiData({...cdaiData, swollenJoints: parseInt(e.target.value) || 0})}
+                min="0"
+                max="28"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="cdai-patientGlobal">Общая оценка пациентом (0-10)</Label>
+              <div className="pt-6">
+                <Slider
+                  value={[cdaiData.patientGlobal]}
+                  min={0}
+                  max={10}
+                  step={0.1}
+                  onValueChange={(value) => setCdaiData({...cdaiData, patientGlobal: value[0]})}
+                />
+              </div>
+              <p className="text-sm text-center mt-2">{cdaiData.patientGlobal.toFixed(1)}</p>
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="cdai-physicianGlobal">Общая оценка врачом (0-10)</Label>
+              <div className="pt-6">
+                <Slider
+                  value={[cdaiData.physicianGlobal]}
+                  min={0}
+                  max={10}
+                  step={0.1}
+                  onValueChange={(value) => setCdaiData({...cdaiData, physicianGlobal: value[0]})}
+                />
+              </div>
+              <p className="text-sm text-center mt-2">{cdaiData.physicianGlobal.toFixed(1)}</p>
+            </div>
+          </div>
+          
+          <Button 
+            className="w-full mt-6" 
+            onClick={calculateCDAI}
+          >
+            Рассчитать CDAI
+          </Button>
+        </CardContent>
+      </Card>
+      
+      {cdaiData.calculated && (
+        <ResultDisplay
+          title="CDAI"
+          score={cdaiData.score}
+          interpretation={getCDAIInterpretation()}
+          details="CDAI (Clinical Disease Activity Index) - клинический индекс активности ревматоидного артрита, не требующий лабораторных исследований. Учитывает число болезненных и припухших суставов, общую оценку пациентом и врачом."
+        />
+      )}
+    </div>
+  );
+
+  return (
+    <Layout>
+      <CalculatorLayout
+        title="Ревматоидный артрит"
+        description="Калькуляторы для оценки активности ревматоидного артрита по индексам DAS28, SDAI и CDAI"
+        calculators={[
+          { id: "das28", name: "DAS28-СОЭ", content: <DAS28Calculator /> },
+          { id: "sdai", name: "SDAI", content: <SDAICalculator /> },
+          { id: "cdai", name: "CDAI", content: <CDAICalculator /> }
+        ]}
+      />
+    </Layout>
+  );
+};
+
+export default RheumatoidArthritis;
